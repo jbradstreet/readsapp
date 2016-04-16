@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        a.pull-left(href='/')
+          img(height='75px', width='75px', alt='Logo', src='http://derbyimages.woot.com/3152799/9b7cdab4-cbc4-4a14-a048-caa2b93df356.jpg')
+          p.pull-right.navbar-text Galvanize Reads
+  section.container-fluid
+    .row.row-centered
+      .col-md-5.col-md-offset-1.col-centered
+        img.mainImages(src='http://www.helotsoftware.co.uk/images/classic-authors-800by600.jpg', alt='authors', style='height: 300px; width: 75%; display: block;')
+        a.text-center(href='./authors') Authors
+      .col-md-5.col-centered
+        img.mainImages(src='http://www.uglydogbooks.com/wp-content/uploads/2014/04/books.jpg', alt='books', style='height: 300px; width: 75%; display: block;')
+        //- p.text-center Books
+        a.text-center(href='./books') Books

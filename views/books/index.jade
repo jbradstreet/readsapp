@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  h1 Books
+
+  a(href="/books/new") New Book
+
+  if books
+    table.table.table-striped
+      thead
+        tr
+          th Title
+          th Genre
+          th Cover Image URL
+          th Description
+          th Authors
+      tbody
+        for book in books
+          tr
+            td= book.title
+            td= book.genre
+            td= book.cover_image_url
+            td= book.description
+            td= book.authors
+            td: a(href="/books/"+book.id id="book.title")= book.title

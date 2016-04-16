@@ -1,0 +1,38 @@
+block content
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        a.pull-left(href='/')
+          img(height='75px', width='75px', alt='Logo', src='http://derbyimages.woot.com/3152799/9b7cdab4-cbc4-4a14-a048-caa2b93df356.jpg')
+          p.pull-right.navbar-text Galvanize Reads
+  section.container
+    h1.text-center Add or edit a new author!
+    .col-md-6.col-md-offset-3(<form='')
+      fieldset.form-group
+        label(for='firstname') First Name
+        input.form-control(type='text' id='firstname' name='firstname' value= author.first)
+      fieldset.form-group
+        label(for='lastname') Last Name
+        input.form-control(type='text' id='lastname' name='lastname' value= author.last)
+      fieldset.form-group
+        label(for='portraitURL') Portrait URL
+        input.form-control(type='text' id='portraitURL' name='portraitURL' value= author.url)
+      fieldset.form-group
+        label(for='biography') biography
+        textarea.form-control(type='text' id='biography' name='biography' rows='5') #{author.bio}
+      fieldset.form-group
+        label(for='books') Books
+        select.form-control(multiple='' size='4' name='books')
+          option.book(value='Book One')
+            | Book One
+          option.book(value='Book Two')
+            | Book Two
+        button#remove.btn.btn-danger Remove
+        
+        select.form-control
+          for book in books
+            option #{book.title}
+        button#add.btn.btn-success Add
+      
+      div.form-group
+        button.btn.btn-primary.btn-lg.btn-block(type="submit") ADD AUTHOR

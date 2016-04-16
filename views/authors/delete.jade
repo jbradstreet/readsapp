@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+  if authors
+    h1 Deleting #{authors[0].first} #{authors[0].last}
+      
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.pull-left(href='/')
+            img(height='75px', width='75px', alt='Logo', src='http://derbyimages.woot.com/3152799/9b7cdab4-cbc4-4a14-a048-caa2b93df356.jpg')
+            p.pull-right.navbar-text Galvanize Reads
+            
+    section.left-buffer
+      h1 Authors
+    
+      a(href='/authors/new') New Author
+      
+    div.success
+      if message
+        h1= message  
+      
+    if authors
+      for author in authors
+        section.container-fluid
+          .row.row-centered.top-buffer
+            .col-md-2.pull-left
+              img(height='200px', width='200px', alt='random image', src=author.url)
+            .col-md-6
+              h3 #{author.first} #{author.last}
+              p.
+                #{author.bio}
+            .col-md-2
+              a.btn-link(type='button' href='/authors/' + author.id + '/edit') Edit              
+              form(action='/authors/#{authors[0].id}/delete', _method='delete' method='post')
+                input.btn-link(type='submit' href='/authors/' + author.id + '/delete' value='Delete')
+        
+            .col-md-6
+              fieldset.form-group
+                label(for='books') Books
+                select.form-control(multiple='')
+                  if author.books
+                    for book in author.books
+                      option #{book.title}
+      
+      

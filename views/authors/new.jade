@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.errors 
+      if errors
+        each error in errors
+          li= error
+    form(action='/authors' method='post')
+      include ./authorfields.jade

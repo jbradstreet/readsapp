@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  if books
+    p
+    h1 Deleting #{books[0].title}
+    form(action='/books/#{books[0].id}/delete', _method='delete' method='post')
+      include ./displaybooks.jade

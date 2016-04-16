@@ -1,0 +1,27 @@
+.mainImages {
+  margin: auto;
+}
+
+.navbar-brand {
+  padding-top: 0;
+}
+
+p {
+  font-size: 15px
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.left-buffer {
+  margin-left: 15px;
+}
+
+.success {
+  color: #009900;
+}
+
+.errors {
+  color: #cc0000;
+}

@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  if author
+    h1 Editing #{author.first} #{author.last}
+    form(action='/authors/#{author.id}/edit', _method='put' method='post')
+      include ./authorfields.jade

@@ -1,0 +1,35 @@
+extends ../layout
+
+block content 
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        a.pull-left(href='/')
+          img(height='75px', width='75px', alt='Logo', src='http://derbyimages.woot.com/3152799/9b7cdab4-cbc4-4a14-a048-caa2b93df356.jpg')
+          p.pull-right.navbar-text Galvanize Reads
+  
+  section.left-buffer        
+    h1 Books
+    
+    a(href='/books/new') New Book        
+          
+  if books  
+    for book in books
+        section.container-fluid
+          .row.row-centered.top-buffer
+              .col-md-2.pull-left
+                img(height='275px', width='200px', alt='random image', src=book.url)
+              .col-md-6
+                h3 #{book.title}
+                h4 #{book.authors}
+                h5
+                  em
+                    strong #{book.genre}
+                p. 
+                  #{book.description}
+              .col-md-2
+                a.btn-link(href='/books/' + book.id + '/edit') Edit
+                
+                a.btn-link.left-buffer(href='/books/' + book.id + '/delete') Unsure Delete
+                form(action='/books/#{books.id}/delete' method='post')
+                  input.btn.btn-link(type='submit' value='Definite Delete')
